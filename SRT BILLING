@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <style>
+        body { background-color: #B7CEEC; color: #C83F49; font-family: sans-serif; text-align: center; margin: 0; padding: 10px; }
+        #output { 
+            font-family: 'Courier New', monospace; 
+            text-align: centre; 
+            display: inline-block; 
+            white-space: pre; 
+            line-height: 1;
+            font-size: 18px; 
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <pre id="output">WELCOME TO SRIRAM'S BILLING SOFTWARE</pre>
+    
+    <script type="py">
+        import asyncio
+        from pyscript import window, document
+
+        Sl_no=1
+        G_total=0
+        await asyncio.sleep(0.5)
+        screen_print("""DRESS CODE
+        1=SAREE
+        2=DHOTI
+        3=TOWEL
+        4=KERCHIF
+        5=JETTY
+        6=BANIYAN
+        7=SHIMMY
+        8=NIGHTY
+        9=LUNGI
+        10=SHAAL
+        11=BEDSHEET
+        12=SCREEN
+        13=SCREEN CLOTH
+        14=PAAVADAI
+        15=BLOUSE BIT
+        16=LINING
+        17=TOPS
+        18=FROG
+        19=CHUDI
+        20=LEHENGA
+        21=T.SHIRT
+        22=SHIRT
+        23=PANT
+        24=SHORTS
+        25=T.PANT
+        26=SHIRTING
+        27=SUITING
+        28=COAT SUIT""")
+        screen_print()
+        b=[[]]
+        while Sl_no>0:
+            await asyncio.sleep(0.5)
+            screen_print()
+            Dr_code=window.prompt("Enter the dress code: ")
+            if Dr_code=="1":
+                Dr_name="SAREE"
+            elif Dr_code=="2":
+                Dr_name="DHOTI"
+            elif Dr_code=="3":
+                Dr_name="TOWEL"
+            elif Dr_code=="4":
+                Dr_name="KERCHIF"
+            elif Dr_code=="5":
+                Dr_name="JETTY"
+            elif Dr_code=="6":
+                Dr_name="BANIYAN"
+            elif Dr_code=="7":
+                Dr_name="SHIMMY"
+            elif Dr_code=="8":
+                Dr_name="NIGHTY"
+            elif Dr_code=="9":
+                Dr_name="LUNGI"
+            elif Dr_code=="10":
+                Dr_name="SHAAL"
+            elif Dr_code=="11":
+                Dr_name="BEDSHEET"
+            elif Dr_code=="12":
+                Dr_name="SCREEN"
+            elif Dr_code=="13":
+                Dr_name="SCREEN CLOTH"
+            elif Dr_code=="14":
+                Dr_name="PAAVADAI"
+            elif Dr_code=="15":
+                Dr_name="BLOUSE BIT"
+            elif Dr_code=="16":
+                Dr_name="LINING"
+            elif Dr_code=="17":
+                Dr_name="TOPS"
+            elif Dr_code=="18":
+                Dr_name="FROG"
+            elif Dr_code=="19":
+                Dr_name="CHUDI"
+            elif Dr_code=="20":
+                Dr_name="LEHANGA"
+            elif Dr_code=="21":
+                Dr_name="T.SHIRT"
+            elif Dr_code=="22":
+                Dr_name="SHIRT"
+            elif Dr_code=="23":
+                Dr_name="PANT"
+            elif Dr_code=="24":
+                Dr_name="SHORTS"
+            elif Dr_code=="25":
+                Dr_name="T.PANT"
+            elif Dr_code=="26":
+                Dr_name="SHIRTING"
+            elif Dr_code=="27":
+                Dr_name="SUITING"
+            elif Dr_code=="28":
+                Dr_name="COAT SUIT"
+            else:
+                screen_print()
+                screen_print("UNKNOWN DRESS CODE")
+                continue
+            screen_print()
+            await asyncio.sleep(1)
+            Dr_amt=float(window.prompt("Enter the amount of dress: "))
+            if Dr_name in ["SHIRTING","SUITING", "LINING","SCREEN CLOTH"]:
+                screen_print()
+                await asyncio.sleep(1)
+                Dr_mtr=float(window.prompt("Enter the meter of dress: "))
+            else:
+                Dr_mtr=1.00
+            screen_print()
+            await asyncio.sleep(1)
+            no_of_dr=int(window.prompt("Enter the no.of.dress: "))
+            screen_print()
+            total=Dr_amt*no_of_dr*Dr_mtr
+            await asyncio.sleep(1)
+            A=[]
+            A.append(Sl_no)
+            A.append(Dr_code)
+            A.append(Dr_name)
+            A.append(Dr_amt)
+            A.append(Dr_mtr)
+            A.append(no_of_dr)
+            A.append(total)
+            G_total+=total
+            await asyncio.sleep(1)
+            b.append(A)
+            for i in b[1::]:
+                    screen_print(i)
+            Sl_no+=1
+            screen_print()
+            a=window.prompt("""Enter 'p' to print bill,
+              'a' to add dress,
+              'c' to do any change,
+              'r' to remove any dress,
+              'd' to delete bill.""")
+            screen_print()
+            while True:
+                if a=="c":
+                    x=int(window.prompt('Enter the s.no of the dress: '))
+                    screen_print()
+                    y=int(window.prompt('''Enter "1" to change dress,
+                  "3" to change amount,
+                  "4" to change mtr,
+                  "5" to change no.of.dress.'''))
+                    screen_print()
+                    if y==1:
+                        Dr_code=window.prompt('Enter the dress code: ')
+                        b[x][y]=Dr_code
+                        if Dr_code=="1":
+                            Dr_name="SAREE"
+                        elif Dr_code=="2":
+                            Dr_name="DHOTI"
+                        elif Dr_code=="3":
+                            Dr_name="TOWEL"
+                        elif Dr_code=="4":
+                            Dr_name="KERCHIF"
+                        elif Dr_code=="5":
+                            Dr_name="JETTY"
+                        elif Dr_code=="6":
+                            Dr_name="BANIYAN"
+                        elif Dr_code=="7":
+                            Dr_name="SHIMMY"
+                        elif Dr_code=="8":
+                            Dr_name="NIGHTY"
+                        elif Dr_code=="9":
+                            Dr_name="LUNGI"
+                        elif Dr_code=="10":
+                            Dr_name="SHAAL"
+                        elif Dr_code=="11":
+                            Dr_name="BEDSHEET"
+                        elif Dr_code=="12":
+                            Dr_name="SCREEN"
+                        elif Dr_code=="13":
+                            Dr_name="SCREEN CLOTH"
+                        elif Dr_code=="14":
+                            Dr_name="PAAVADAI"
+                        elif Dr_code=="15":
+                            Dr_name="BLOUSE BIT"
+                        elif Dr_code=="16":
+                            Dr_name="LINING"
+                        elif Dr_code=="17":
+                            Dr_name="TOPS"
+                        elif Dr_code=="18":
+                            Dr_name="FROG"
+                        elif Dr_code=="19":
+                            Dr_name="CHUDI"
+                        elif Dr_code=="20":
+                            Dr_name="LEHANGA"
+                        elif Dr_code=="21":
+                            Dr_name="T.SHIRT"
+                        elif Dr_code=="22":
+                            Dr_name="SHIRT"
+                        elif Dr_code=="23":
+                            Dr_name="PANT"
+                        elif Dr_code=="24":
+                            Dr_name="SHORTS"
+                        elif Dr_code=="25":
+                            Dr_name="T.PANT"
+                        elif Dr_code=="26":
+                            Dr_name="SHIRTING"
+                        elif Dr_code=="27":
+                            Dr_name="SUITING"
+                        elif Dr_code=="28":
+                            Dr_name="COAT SUIT"
+                        else:
+                            screen_print()
+                            screen_print("UNKNOWN DRESS CODE")
+                            continue
+                        b[x][y+1]=Dr_name
+                        screen_print()
+                        await asyncio.sleep(1)
+                    elif y==3:
+                        b[x][y]=float(window.prompt('Enter the amount of dress: '))
+                        a=b[x][5]=b[x][3]*b[x][4]
+                    elif y==4:
+                        b[x][y]=float(window.prompt('Enter the meter of dress: '))
+                        a=b[x][5]=b[x][3]*b[x][4]
+                    elif y==5:
+                        b[x][y]=int(window.prompt('Enter the no.of.dress: '))
+                        b[x][6]=b[x][5]*b[x][3]*b[x][4]
+                    screen_print()
+                    for i in b[1::]:
+                        screen_print(i)
+                    screen_print()
+                    a=window.prompt("""Enter 'p' to print bill,
+              'a' to add dress,
+              'c' to do any change,
+              'r' to remove any dress,
+              'd' to delete bill.""")    
+                    if a in ['p','a','d']:
+                        break
+                elif a=="r":
+                    x=int(window.prompt('Enter the s.no of dress to remove: '))
+                    for d in b[x+1::]:
+                        d[0]-=1
+                        Sl_no-=1
+                    del b[x]
+                    screen_print()
+                    for i in b[1::]:
+                        screen_print(i)
+                    screen_print()
+                    a=window.prompt("""Enter 'p' to print bill,
+              'a' to add dress,
+              'c' to do any change,
+              'r' to remove any dress,
+              'd' to delete bill.""")
+                    if a in ['p','a','d']:
+                        break
+                elif a in ['p','a','d']:
+                    break
+            if a=="p":
+                await asyncio.sleep(1)
+                screen_print("____________________________________")
+                screen_print()
+                screen_print("""SRI RAM TEXTILES
+        GANDHI BAZAR, GINGEE
+        """)
+                screen_print("____________________________________")
+                future = time.localtime(time.time() + 12 * 60 * 60)
+                screen_print(time.asctime(future))
+                screen_print("____________________________________")
+                for i in b[1::]:
+                    screen_print(i)
+                screen_print()
+                screen_print("Grand Total=",G_total)
+                screen_print("""
+        THANK YOU! VISIT AGAIN!!""")
+                screen_print("____________________________________")
+                break
+            elif a=="a":
+                continue
+            elif s=="d":
+                del b
