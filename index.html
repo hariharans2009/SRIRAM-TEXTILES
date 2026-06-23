@@ -22,6 +22,7 @@
     
     <script type="py">
         import asyncio
+        import js
         from pyscript import window, document
 
         Sl_no=1
@@ -59,7 +60,7 @@
         screen_print()
         b=[[]]
         while Sl_no>0:
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(1)
             screen_print()
             Dr_code=window.prompt("Enter the dress code: ")
             if Dr_code=="1":
