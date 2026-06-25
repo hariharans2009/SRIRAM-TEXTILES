@@ -27,7 +27,7 @@
 
         Sl_no=1
         G_total=0
-        await asyncio.sleep(0.5)
+        asyncio.sleep(0.5)
         screen_print("""DRESS CODE
         1=SAREE
         2=DHOTI
@@ -60,7 +60,7 @@
         screen_print()
         b=[[]]
         while Sl_no>0:
-            await asyncio.sleep(1)
+            asyncio.sleep(1)
             screen_print()
             Dr_code=window.prompt("Enter the dress code: ")
             if Dr_code=="1":
@@ -124,20 +124,20 @@
                 screen_print("UNKNOWN DRESS CODE")
                 continue
             screen_print()
-            await asyncio.sleep(1)
+            asyncio.sleep(1)
             Dr_amt=float(window.prompt("Enter the amount of dress: "))
             if Dr_name in ["SHIRTING","SUITING", "LINING","SCREEN CLOTH"]:
                 screen_print()
-                await asyncio.sleep(1)
+                asyncio.sleep(1)
                 Dr_mtr=float(window.prompt("Enter the meter of dress: "))
             else:
                 Dr_mtr=1.00
             screen_print()
-            await asyncio.sleep(1)
+            asyncio.sleep(1)
             no_of_dr=int(window.prompt("Enter the no.of.dress: "))
             screen_print()
             total=Dr_amt*no_of_dr*Dr_mtr
-            await asyncio.sleep(1)
+            asyncio.sleep(1)
             A=[]
             A.append(Sl_no)
             A.append(Dr_code)
@@ -147,7 +147,7 @@
             A.append(no_of_dr)
             A.append(total)
             G_total+=total
-            await asyncio.sleep(1)
+            asyncio.sleep(1)
             b.append(A)
             for i in b[1::]:
                     screen_print(i)
@@ -233,7 +233,7 @@
                             continue
                         b[x][y+1]=Dr_name
                         screen_print()
-                        await asyncio.sleep(1)
+                        asyncio.sleep(1)
                     elif y==3:
                         b[x][y]=float(window.prompt('Enter the amount of dress: '))
                         a=b[x][5]=b[x][3]*b[x][4]
@@ -274,7 +274,7 @@
                 elif a in ['p','a','d']:
                     break
             if a=="p":
-                await asyncio.sleep(1)
+                asyncio.sleep(1)
                 screen_print("____________________________________")
                 screen_print()
                 screen_print("""SRI RAM TEXTILES
